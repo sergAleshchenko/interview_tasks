@@ -1,6 +1,5 @@
 package patterns.iterator.spammer;
 
-import org.aspectj.org.eclipse.jdt.internal.core.util.CodeSnippetParsingUtil;
 import patterns.iterator.iterators.ProfileIterator;
 import patterns.iterator.profile.Profile;
 import patterns.iterator.social_networks.SocialNetwork;

@@ -5,9 +5,14 @@ package evgeny_borisov.epam;
  */
 
 @Singleton
+//@Deprecated
 public class RecommendatorImpl implements Recommendator {
     @InjectProperty("whiskey")
     private String alcohol;
+
+    public RecommendatorImpl() {
+        System.out.println("recommendator was created");
+    }
 
     @Override
     public void recommend() {

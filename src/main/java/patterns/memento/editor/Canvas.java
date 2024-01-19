@@ -57,10 +57,10 @@ public class Canvas extends java.awt.Canvas {
             @Override
             public void keyPressed(KeyEvent e) {
                 if ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0) {
-                    switch (e.getKeyCode()) {
-                        case KeyEvent.VK_Z -> editor.undo();
-                        case KeyEvent.VK_R -> editor.redo();
-                    }
+//                    switch (e.getKeyCode()) {
+//                        case KeyEvent.VK_Z -> editor.undo();
+//                        case KeyEvent.VK_R -> editor.redo();
+//                    }
                 }
             }
         });

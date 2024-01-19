@@ -3,6 +3,7 @@ package evgeny_borisov.epam;
 /**
  * @author Sergei Aleshchenko
  */
+@Deprecated
 public class CoronaDesinfector {
     @InjectByType
     private Announcer announcer;
@@ -12,9 +13,7 @@ public class CoronaDesinfector {
     public void start(Room room) {
         announcer.announce("Начинаем дезинфекцию, все вон!");
         policeman.makePeopleLeaveRoom();
-
         desinfect(room);
-
         announcer.announce("Рискните зайти обратно");
     }
 

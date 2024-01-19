@@ -1,6 +1,7 @@
 package evgeny_borisov.epam;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Sergei Aleshchenko
  */
 public class ApplicationContext {
+    @Setter
     private ObjectFactory factory;
     private Map<Class, Object> cache = new ConcurrentHashMap<>();
     @Getter

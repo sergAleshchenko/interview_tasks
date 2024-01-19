@@ -1,7 +1,6 @@
 package patterns.memento.history;
 
 import lombok.Getter;
-import org.graalvm.collections.Pair;
 import patterns.memento.commands.Command;
 
 import java.util.ArrayList;
