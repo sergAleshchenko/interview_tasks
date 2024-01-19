@@ -16,7 +16,6 @@ public class CoronaDesinfector {
         desinfect(room);
 
         announcer.announce("Рискните зайти обратно");
-
     }
 
     private void desinfect(Room room) {
