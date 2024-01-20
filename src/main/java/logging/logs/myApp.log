@@ -41,3 +41,6 @@
 2024-01-20 15:01:15,124 INFO e.s.l.MainConf [main] Starting MainConf using Java 17.0.9 with PID 2104 (H:\IDEA_PROJECTS\Learning\target\classes started by serga in H:\IDEA_PROJECTS\Learning) 
 2024-01-20 15:01:15,131 INFO e.s.l.MainConf [main] No active profile set, falling back to 1 default profile: "default" 
 2024-01-20 15:01:15,259 INFO e.s.l.MainConf [main] Started MainConf in 0.303 seconds (process running for 0.644) 
+2024-01-20 17:09:09,162 INFO e.s.n.Main [main] Starting Main using Java 17.0.9 with PID 8272 (H:\IDEA_PROJECTS\Learning\target\classes started by serga in H:\IDEA_PROJECTS\Learning) 
+2024-01-20 17:09:09,164 INFO e.s.n.Main [main] No active profile set, falling back to 1 default profile: "default" 
+2024-01-20 17:09:09,240 INFO e.s.n.Main [main] Started Main in 0.284 seconds (process running for 0.636) 
