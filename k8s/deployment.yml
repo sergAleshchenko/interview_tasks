@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-deployment
+  namespace: spring-boot
+  labels:
+    app: spring-boot-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: spring-boot-deployment
+      labels:
+        app: spring-boot-deployment
+    spec:
+      containers:
+        - name: spring-boot-deployment
+          image: mukulmantosh/spring-boot:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: spring-boot-deployment
