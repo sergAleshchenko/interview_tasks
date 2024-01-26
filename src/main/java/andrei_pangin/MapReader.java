@@ -1,17 +1,25 @@
 package andrei_pangin;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * @author Sergei Aleshchenko
  */
 public class MapReader {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
+//        fillFile();
+
+        while (true) {
+            long start = System.nanoTime();
+            Map<String, Long> map = readMap("H:\\IDEA_PROJECTS\\Learning\\src\\main\\java\\andrei_pangin\\in.txt");
+            long time = System.nanoTime() - start;
+            System.out.printf("Read %d elements in %.3f seconds\n", map.size(), time / 1e9);
+        }
     }
 
     private static Map<String, Long> readMap(String fileName) throws Exception {
@@ -38,6 +46,36 @@ public class MapReader {
         }
 
         return map;
+    }
+
+    private static void fillFile() {
+        HashMap<String, Long> map = new HashMap<>();
+
+        for (long i = 0; i < 1000000; i++) {
+            map.put("Key" + i, i);
+        }
+
+        File file = new File("H:\\IDEA_PROJECTS\\Learning\\src\\main\\java\\andrei_pangin\\in.txt");
+        BufferedWriter bf = null;
+
+        try {
+            bf = new BufferedWriter(new FileWriter(file));
+            for (Map.Entry<String, Long> entry : map.entrySet()) {
+                bf.write(entry.getKey() + ":" + entry.getValue());
+                bf.newLine();
+            }
+            bf.flush();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                bf.close();
+            }
+            catch (Exception e) {
+            }
+        }
     }
 
 
