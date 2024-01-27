@@ -1,4 +1,4 @@
-package evgeny_borisov.spring_potroshitel;
+package evgeny_borisov.spring_potroshitel.part_1;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -11,6 +11,6 @@ public class Main {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("context.xml");
 
-
+        context.getBean(Quoter.class).sayQuote();
     }
 }

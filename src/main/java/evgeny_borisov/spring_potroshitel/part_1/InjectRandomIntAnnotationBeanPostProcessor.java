@@ -1,4 +1,4 @@
-package evgeny_borisov.spring_potroshitel;
+package evgeny_borisov.spring_potroshitel.part_1;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

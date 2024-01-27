@@ -1,4 +1,4 @@
-package evgeny_borisov.spring_potroshitel;
+package evgeny_borisov.spring_potroshitel.part_1;
 
 import lombok.Setter;
 
@@ -9,9 +9,11 @@ import javax.annotation.PostConstruct;
  */
 
 @Profiling
+@DeprecatedClass(newImpl = T1000.class)
 public class TerminatorQuoter implements Quoter {
 
     @InjectRandomInt(min = 2, max = 7)
+    @Setter
     private int repeat;
     @Setter
     private String message;
