@@ -12,6 +12,12 @@ public interface SpeakerService {
 
     List<Speaker> fetchSpeakerList();
     Optional<Speaker> fetchSpeakerById(Long id);
+    Optional<Speaker> fetchSpeakerByName(String name);
 
     void deleteSpeakerById(Long speakerId);
+
+    List<Speaker> fetchSpeakerByNameLike(String nameLike);
+    List<Speaker> fetchSpeakerByNameEndingWith(String suffix);
+
+    List<Speaker> fetchSpeakersWithSpecificTalks(String titleLike);
 }

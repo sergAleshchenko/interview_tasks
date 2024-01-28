@@ -1,8 +1,8 @@
 package evgeny_borisov.spring_data;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.Parent;
 
 import java.util.Date;
 
@@ -10,7 +10,6 @@ import java.util.Date;
  * @author Sergei Aleshchenko
  */
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -18,16 +17,22 @@ public class Talk {
 
     @Id
     @GeneratedValue
-    @Column(name = "`TALK_ID`")
+    @Column(name = "`talkid`")
     private Long talkId;
 
-    @Column(name = "`WHEN`")
+    @Column(name = "`talkdate`")
     private Date when;
 
-    @Column(name = "`TITLE`")
+    @Column(name = "`talktitle`")
     private String title;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="speakerId", nullable=false)
+    @JoinColumn(name="speaker_id", nullable=false)
     private Speaker speaker;
+
+    @Override
+    public String toString() {
+        return title + " -> " + when.toString();
+    }
 }

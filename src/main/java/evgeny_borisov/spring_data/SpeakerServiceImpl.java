@@ -1,7 +1,6 @@
 package evgeny_borisov.spring_data;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,7 +31,28 @@ public class SpeakerServiceImpl implements SpeakerService {
     }
 
     @Override
+    public Optional<Speaker> fetchSpeakerByName(String name) {
+        return speakerRepository.findByName(name);
+    }
+
+    @Override
     public void deleteSpeakerById(Long speakerId) {
         speakerRepository.deleteById(speakerId);
+    }
+
+    @Override
+    public List<Speaker> fetchSpeakerByNameEndingWith(String suffix) {
+        return speakerRepository.findByNameEndingWith(suffix);
+    }
+
+    @Override
+    public List<Speaker> fetchSpeakersWithSpecificTalks(String titleLike) {
+        return speakerRepository.findByTalksTitleLikeIgnoreCase(titleLike);
+    }
+
+
+    @Override
+    public List<Speaker> fetchSpeakerByNameLike(String nameLike) {
+        return speakerRepository.findByNameLike(nameLike);
     }
 }

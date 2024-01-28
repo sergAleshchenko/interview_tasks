@@ -1,5 +1,6 @@
 package evgeny_borisov.spring_data;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,7 +11,6 @@ import java.util.Set;
  * @author Sergei Aleshchenko
  */
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -18,15 +18,16 @@ public class Speaker {
 
     @Id
     @GeneratedValue
-    @Column(name = "SPEAKER_ID")
+    @Column(name = "id")
     private Long speakerId;
 
     @Getter
-    @Column(name = "SPEAKER_NAME")
+    @Column(name = "speakername")
     private String name;
 
     @Getter
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "speaker", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Set<Talk> talks;
 
     public Speaker(String name) {
@@ -36,5 +37,18 @@ public class Speaker {
     public void addTalk(Talk talk) {
         if (talks == null) talks = new HashSet<>();
         talks.add(talk);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("**************** ");
+        sb.append(name).append(", ");
+
+        for (Talk talk : talks) {
+            sb.append(" ").append(talk.toString()).append(", ");
+        }
+
+        return sb.toString();
     }
 }
