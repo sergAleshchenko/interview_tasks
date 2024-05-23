@@ -10,21 +10,21 @@ import java.util.Random;
 /**
  * @author Sergei Aleshchenko
  */
-// Отвечает за обработку всех бинов, классы которых имеют
-// аннотацию @InjectRandomInt в каком-то поле
-
-public class InjectRandomIntAnnotationBeanPostProcessor
-        implements BeanPostProcessor {
+public class InjectRandomIntAnnotationBeanPostProcessor implements BeanPostProcessor {
 
     @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+    public Object postProcessBeforeInitialization(Object bean, String beanName)
+            throws BeansException {
+
         Field[] fields = bean.getClass().getDeclaredFields();
 
         for (Field field : fields) {
-            InjectRandomInt annotation = field.getAnnotation(InjectRandomInt.class);
+            InjectRandomInt annotation =
+                    field.getAnnotation(InjectRandomInt.class);
             if (annotation != null) {
                 int min = annotation.min();
                 int max = annotation.max();
+
                 Random random = new Random();
                 int i = min + random.nextInt(max - min);
                 field.setAccessible(true);
@@ -36,7 +36,8 @@ public class InjectRandomIntAnnotationBeanPostProcessor
     }
 
     @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+    public Object postProcessAfterInitialization(Object bean, String beanName)
+            throws BeansException {
         return bean;
     }
 }

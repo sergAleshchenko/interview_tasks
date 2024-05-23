@@ -11,7 +11,6 @@
     <bean class="evgeny_borisov.spring_potroshitel.part_1.ProfilingHandlerBeanPostProcessor"/>
     <bean class="evgeny_borisov.spring_potroshitel.part_1.InjectRandomIntAnnotationBeanPostProcessor"/>
 
-
     <bean class="evgeny_borisov.spring_potroshitel.part_1.TerminatorQuoter"
           id="terminatorQuoter">
         <property name="message" value="I'll be back"/>

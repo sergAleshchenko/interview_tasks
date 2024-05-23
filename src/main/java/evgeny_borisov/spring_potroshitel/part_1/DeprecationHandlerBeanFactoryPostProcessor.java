@@ -8,14 +8,9 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 /**
  * @author Sergei Aleshchenko
  */
-public class DeprecationHandlerBeanFactoryPostProcessor
-        implements BeanFactoryPostProcessor {
-
-
+public class DeprecationHandlerBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
     @Override
-    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
-            throws BeansException {
-
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         String[] names = beanFactory.getBeanDefinitionNames();
 
         for (String name : names) {

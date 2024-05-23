@@ -12,9 +12,7 @@ import java.lang.reflect.Method;
 /**
  * @author Sergei Aleshchenko
  */
-public class PostProxyInvokerContextListener
-        implements ApplicationListener<ContextRefreshedEvent> {
-
+public class PostProxyInvokerContextListener implements ApplicationListener<ContextRefreshedEvent> {
     @Autowired
     private ConfigurableListableBeanFactory factory;
 
@@ -33,10 +31,8 @@ public class PostProxyInvokerContextListener
                 for (Method method : methods) {
                     if (method.isAnnotationPresent(PostProxy.class)) {
                         Object bean = context.getBean(name);
-                        Method currentMethod = bean.getClass().getMethod(
-                                method.getName(), method.getParameterTypes());
+                        Method currentMethod = bean.getClass().getMethod(method.getName(), method.getParameterTypes());
                         currentMethod.invoke(bean);
-
                     }
                 }
             } catch (Exception e) {

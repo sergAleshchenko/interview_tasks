@@ -10,5 +10,12 @@ public class Test {
                 ", salary: " + employee.getSalary() +
                 ", age: " + employee.getAge() +
                 ", address: " + employee.getAddress());
+
+        System.out.println("----------------------------------------------------------");
+
+
+        Employee1 employee1 = new Employee1();
+        employee1.printThis();
+
     }
 }
