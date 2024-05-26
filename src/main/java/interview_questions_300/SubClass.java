@@ -1,14 +1,24 @@
 package interview_questions_300;
 
-import javax.management.relation.RoleUnresolved;
-import java.io.IOException;
 import java.net.BindException;
 
 /**
  * @author Sergei Aleshchenko
  */
-public class SubClass extends SuperClass {
+public class SubClass extends SuperClass implements SomeInterface {
+
+    public SubClass() {
+        super();
+    }
+
     @Override
-    void doSomething() throws BindException {
+    void doSomething(){
+    }
+
+    @Override
+    public int doSomething(int n) {
+        System.out.println("some");
+        super.doSomething();
+        return 0;
     }
 }

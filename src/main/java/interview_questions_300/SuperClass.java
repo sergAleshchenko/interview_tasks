@@ -7,7 +7,11 @@ import java.util.concurrent.ExecutionException;
  * @author Sergei Aleshchenko
  */
 public class SuperClass {
-    void doSomething() throws IOException {
+
+    public SuperClass() {
+    }
+
+    void doSomething() {
 
     }
 }

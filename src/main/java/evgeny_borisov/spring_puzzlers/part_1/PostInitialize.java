@@ -1,4 +1,4 @@
-package evgeny_borisov.spring_puzzlers;
+package evgeny_borisov.spring_puzzlers.part_1;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -7,5 +7,5 @@ import java.lang.annotation.RetentionPolicy;
  * @author Sergei Aleshchenko
  */
 @Retention(RetentionPolicy.RUNTIME)
-public @interface SelfAutowired {
+public @interface PostInitialize {
 }

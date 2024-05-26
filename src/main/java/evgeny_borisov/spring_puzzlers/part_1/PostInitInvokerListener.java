@@ -1,4 +1,4 @@
-package evgeny_borisov.spring_puzzlers;
+package evgeny_borisov.spring_puzzlers.part_1;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;

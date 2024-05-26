@@ -12,7 +12,7 @@
     <bean class="evgeny_borisov.spring_potroshitel.part_1.InjectRandomIntAnnotationBeanPostProcessor"/>
 
 
-    <bean class="evgeny_borisov.spring_puzzlers.JokerConfServiceImpl">
+    <bean class="evgeny_borisov.spring_puzzlers.part_1.JokerConfServiceImpl">
         <property name="conference" value="Joker"/>
 
     </bean>

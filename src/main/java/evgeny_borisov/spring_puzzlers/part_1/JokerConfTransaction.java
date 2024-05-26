@@ -1,4 +1,4 @@
-package evgeny_borisov.spring_puzzlers;
+package evgeny_borisov.spring_puzzlers.part_1;
 
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;

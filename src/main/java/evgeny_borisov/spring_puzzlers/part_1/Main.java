@@ -1,6 +1,5 @@
-package evgeny_borisov.spring_puzzlers;
+package evgeny_borisov.spring_puzzlers.part_1;
 
-import evgeny_borisov.spring_potroshitel.part_1.Quoter;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**

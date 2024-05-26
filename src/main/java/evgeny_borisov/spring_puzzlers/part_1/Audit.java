@@ -1,4 +1,4 @@
-package evgeny_borisov.spring_puzzlers;
+package evgeny_borisov.spring_puzzlers.part_1;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
