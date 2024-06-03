@@ -1,6 +1,6 @@
 package tdd;
 
-import interview_questions_300.PopulationSearch;
+import interview_300_questions.PopulationSearch;
 import org.junit.Assert;
 import org.junit.Test;
 
