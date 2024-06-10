@@ -120,7 +120,7 @@ public class SimpleUnion {
 
     public static void main(String args[]) {
         SimpleUnion u = new SimpleUnion(5, "www.tinyurl.com/");
-        String urls[] = {
+        String[] urls = {
                 "www.google.com/asasdfasdfasdfasdf/",
                 "www.google.com/asasdfasdfasdfasdf/",
                 "http://www.yahoo.com/asasdfasdfasdfasdf",

@@ -15,21 +15,13 @@ public class Solution {
         simpleBoard.addServer("192.168.1.11", 8);
         simpleBoard.addServer("192.168.1.12", 13);
 
-        String ipAddress1 = simpleBoard.getNextServer();
-        System.out.println("Request routed to server: " + ipAddress1);
+        Server server1 = simpleBoard.getNextServer();
+        System.out.println("Request routed to server: " + server1.getIpAddress());
 
-        String ipAddress2 = simpleBoard.getNextServer();
-        System.out.println("Request routed to server: " + ipAddress2);
+        Server server2 = simpleBoard.getNextServer();
+        System.out.println("Request routed to server: " + server2.getIpAddress());
 
-        String ipAddress3 = simpleBoard.getNextServer();
-        System.out.println("Request routed to server: " + ipAddress3);
-
-        try {
-            throw new ClassNotFoundException();
-        } catch (ArithmeticException e) {
-
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        Server server3 = simpleBoard.getNextServer();
+        System.out.println("Request routed to server: " + server3.getIpAddress());
     }
 }

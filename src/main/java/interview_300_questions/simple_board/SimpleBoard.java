@@ -18,7 +18,7 @@ public class SimpleBoard {
         servers.add(new Server(ipAddress, currentLoad));
     }
 
-    public String getNextServer() {
+    public Server getNextServer() {
         if (servers.isEmpty()) {
             throw new IllegalStateException("No servers available in the load balancer.");
         }
@@ -32,6 +32,10 @@ public class SimpleBoard {
 
         minLoadServer.incrementLoad();
 
-        return minLoadServer.getIpAddress();
+        return minLoadServer;
+    }
+
+    public void deleteAllServers() {
+        servers.clear();
     }
 }
