@@ -70,6 +70,8 @@ public class HibernateUtil {
             props.put("hibernate.connection.username", "serga");
             props.put("hibernate.connection.password", "admin1234");
             props.put("hibernate.current_session_context_class", "thread");
+            props.put("hibernate.show_sql", "true");
+            props.put("hibernate.format_sql", "true");
 
             configuration.setProperties(props);
 

@@ -3,6 +3,7 @@ package hibernate_4;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Date;
 
@@ -15,6 +16,7 @@ import java.util.Date;
         uniqueConstraints={@UniqueConstraint(columnNames={"ID"})})
 @Getter
 @Setter
+@ToString
 public class Employee1 {
 
     @Id
@@ -28,6 +30,6 @@ public class Employee1 {
     @Column(name="ROLE", length=20, nullable=true)
     private String role;
 
-    @Column(name="insert_time", nullable=true)
+    @Column(name="insertTime", nullable=true)
     private Date insertTime;
 }
