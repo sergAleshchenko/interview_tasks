@@ -1,4 +1,4 @@
-package interview_300_questions;
+package algorithms;
 
 import java.util.Scanner;
 
