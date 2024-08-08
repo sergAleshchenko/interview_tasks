@@ -1,4 +1,4 @@
-package multithread;
+package multithreading;
 
 public class PriorityDemo {
     public static void main(String[] args) {

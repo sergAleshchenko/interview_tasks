@@ -1,5 +1,7 @@
 package algorithms;
 
+import java.util.Collections;
+
 /**
  * @author Sergei Aleshchenko
  */

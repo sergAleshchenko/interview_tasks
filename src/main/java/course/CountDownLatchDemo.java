@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 public class CountDownLatchDemo {
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(3);
-        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
 
         for (int i = 0; i < 3; i++) {
             executorService.submit(new Processor(i, countDownLatch));
@@ -22,6 +22,7 @@ public class CountDownLatchDemo {
         for (int i = 0; i < 3; i++) {
             Thread.sleep(1000);
             countDownLatch.countDown();
+            System.out.println("CountDownLatch is countDown: " + i);
         }
     }
 }
@@ -39,16 +40,16 @@ class Processor implements Runnable {
     @Override
     public void run() {
         try {
-            Thread.sleep(3000);
+            countDownLatch.await();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
         try {
-            countDownLatch.await();
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Thread with id " + threadId + " proceeded.");
+        System.out.println("Thread with id " + threadId + " proceeded");
     }
 }

@@ -1,4 +1,4 @@
-package multithread;
+package multithreading;
 
 
 public class PointThread extends Thread {
