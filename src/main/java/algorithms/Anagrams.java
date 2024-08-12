@@ -61,15 +61,5 @@ public class Anagrams {
         scan.close();
         boolean ret = isAnagram(a, b);
         System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
-        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
-        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
-
-                System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
-        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
-        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
-
-                System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
-        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
-        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
     }
 }
