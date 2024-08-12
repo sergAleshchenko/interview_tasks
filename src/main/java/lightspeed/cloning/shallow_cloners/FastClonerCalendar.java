@@ -1,4 +1,7 @@
-package lightspeed.cloning;
+package lightspeed.cloning.shallow_cloners;
+
+import lightspeed.cloning.DeepCloner;
+import lightspeed.cloning.ShallowCloner;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -10,9 +13,9 @@ import java.util.TimeZone;
  *
  * 21 May 2009
  */
-public class FastClonerCalendar implements IFastCloner
+public class FastClonerCalendar implements ShallowCloner
 {
-    public Object clone(final Object t, final IDeepCloner cloner, final Map<Object, Object> clones) {
+    public Object clone(final Object t, final DeepCloner cloner, final Map<Object, Object> clones) {
 		GregorianCalendar gc = new GregorianCalendar();
 		Calendar c = (Calendar) t;
 		gc.setTimeInMillis(c.getTimeInMillis());

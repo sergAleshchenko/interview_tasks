@@ -7,7 +7,7 @@ import java.util.Map;
  *
  * @author kostas.kougios Date 24/06/14
  */
-public interface IDeepCloner {
+public interface DeepCloner {
     /**
      * deep clones o
      *

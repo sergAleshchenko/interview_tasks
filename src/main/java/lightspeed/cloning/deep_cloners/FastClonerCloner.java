@@ -1,8 +1,8 @@
 package lightspeed.cloning.deep_cloners;
 
 import lightspeed.cloning.Cloner;
-import lightspeed.cloning.IDeepCloner;
-import lightspeed.cloning.IFastCloner;
+import lightspeed.cloning.DeepCloner;
+import lightspeed.cloning.ShallowCloner;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,16 +10,16 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @author Sergei Aleshchenko
  */
-public class FastClonerCloner implements IDeepCloner {
-    private IFastCloner fastCloner;
-    private IDeepCloner cloneInternal;
+public class FastClonerCloner implements DeepCloner {
+    private ShallowCloner fastCloner;
+    private DeepCloner cloneInternal;
     private Cloner aCloner = new Cloner();
-    private IDeepCloner deepCloner = this::cloneInternal;
-    private Map<Class, IDeepCloner> cloners = new ConcurrentHashMap<>();
-    private static IDeepCloner IGNORE_CLONER = new IgnoreClassCloner();
-    private static IDeepCloner NULL_CLONER = new NullClassCloner();
+    private DeepCloner deepCloner = this::cloneInternal;
+    private Map<Class, DeepCloner> cloners = new ConcurrentHashMap<>();
+    private static DeepCloner IGNORE_CLONER = new IgnoreClassCloner();
+    private static DeepCloner NULL_CLONER = new NullClassCloner();
 
-    public FastClonerCloner(IFastCloner fastCloner) {
+    public FastClonerCloner(ShallowCloner fastCloner) {
         this.fastCloner = fastCloner;
         this.cloneInternal = deepCloner;
     }
@@ -44,7 +44,7 @@ public class FastClonerCloner implements IDeepCloner {
         }
 
         Class<?> aClass = o.getClass();
-        IDeepCloner cloner = cloners.get(aClass);
+        DeepCloner cloner = cloners.get(aClass);
         if (cloner == null) {
             cloner = aCloner.findDeepCloner(aClass);
             cloners.put(aClass, cloner);

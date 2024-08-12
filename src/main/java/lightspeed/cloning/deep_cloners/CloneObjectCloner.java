@@ -12,7 +12,7 @@ import java.util.*;
 /**
  * @author Sergei Aleshchenko
  */
-public class CloneObjectCloner implements IDeepCloner {
+public class CloneObjectCloner implements DeepCloner {
     private final Field[] fields;
     private final boolean[] shouldClone;
     private final int numFields;

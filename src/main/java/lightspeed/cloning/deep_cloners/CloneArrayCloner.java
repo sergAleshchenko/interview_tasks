@@ -1,7 +1,7 @@
 package lightspeed.cloning.deep_cloners;
 
 import lightspeed.cloning.Cloner;
-import lightspeed.cloning.IDeepCloner;
+import lightspeed.cloning.DeepCloner;
 import lightspeed.cloning.utils.Logger;
 import lightspeed.cloning.utils.Utils;
 
@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * @author Sergei Aleshchenko
  */
-public class CloneArrayCloner implements IDeepCloner {
+public class CloneArrayCloner implements DeepCloner {
     private boolean primitive;
     private boolean immutable;
     private Class<?> componentType;

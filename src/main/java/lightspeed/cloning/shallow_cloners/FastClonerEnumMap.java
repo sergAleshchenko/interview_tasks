@@ -1,4 +1,7 @@
-package lightspeed.cloning;
+package lightspeed.cloning.shallow_cloners;
+
+import lightspeed.cloning.DeepCloner;
+import lightspeed.cloning.ShallowCloner;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -8,11 +11,11 @@ import java.util.Map;
  * 
  * @author Tobias Weimer
  */
-public class FastClonerEnumMap implements IFastCloner
+public class FastClonerEnumMap implements ShallowCloner
 {
 	@Override
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public Object clone(final Object toBeCloned, final IDeepCloner cloner, final Map<Object, Object> clones) {
+	public Object clone(final Object toBeCloned, final DeepCloner cloner, final Map<Object, Object> clones) {
 		final EnumMap<? extends Enum<?>, ?> m = (EnumMap) toBeCloned;
 		
 		// make a shallow copy of the original EnumMap

@@ -1,4 +1,7 @@
-package lightspeed.cloning;
+package lightspeed.cloning.shallow_cloners;
+
+import lightspeed.cloning.DeepCloner;
+import lightspeed.cloning.ShallowCloner;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -8,9 +11,9 @@ import java.util.Map;
  *
  * 21 May 2009
  */
-public class FastClonerLinkedHashMap implements IFastCloner {
+public class FastClonerLinkedHashMap implements ShallowCloner {
 	@SuppressWarnings({"unchecked", "rawtypes"})
-	public Object clone(final Object t, final IDeepCloner cloner, final Map<Object, Object> clones) {
+	public Object clone(final Object t, final DeepCloner cloner, final Map<Object, Object> clones) {
 		final LinkedHashMap<?, ?> al = (LinkedHashMap) t;
 		final LinkedHashMap result = new LinkedHashMap();
 		for (final Map.Entry e : al.entrySet()) {

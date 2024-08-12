@@ -1,8 +1,9 @@
 package lightspeed.cloning;
 
 import lightspeed.cloning.deep_cloners.*;
+import lightspeed.cloning.shallow_cloners.*;
 import lightspeed.cloning.utils.Logger;
-import lightspeed.cloning.utils.Utils;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.net.URI;
@@ -16,13 +17,13 @@ public class Cloner {
 	private final IInstantiationStrategy instantiationStrategy;
 	private final Set<Class<?>> ignored = new HashSet<>();
 	private final Set<Class<?>> ignoredInstanceOf = new HashSet<>();
-	private final Map<Class<?>, IFastCloner> fastCloners = new HashMap<>();
+	private final Map<Class<?>, ShallowCloner> fastCloners = new HashMap<>();
 	private Map<Object, Object> ignoredInstances;
 	private Logger dumpCloned = new Logger();
 	private boolean cloningEnabled = true;
-	private Map<Class, IDeepCloner> cloners = new ConcurrentHashMap<>();
-	private static IDeepCloner IGNORE_CLONER = new IgnoreClassCloner();
-	private static IDeepCloner NULL_CLONER = new NullClassCloner();
+	private Map<Class, DeepCloner> cloners = new ConcurrentHashMap<>();
+	private static DeepCloner IGNORE_CLONER = new IgnoreClassCloner();
+	private static DeepCloner NULL_CLONER = new NullClassCloner();
 
 	public Cloner() {
 		this.instantiationStrategy = ObjenesisInstantiationStrategy.getInstance();
@@ -36,7 +37,7 @@ public class Cloner {
 
 	protected void registerFastCloners() {
 		registerFastCloner(GregorianCalendar.class, new FastClonerCalendar());
-		registerFastCloner(ArrayList.class, new FastClonerArrayList());
+		registerFastCloner(ArrayList.class, new ClonerArrayList());
 		registerFastCloner(LinkedList.class, new FastClonerLinkedList());
 		registerFastCloner(HashSet.class, new FastClonerHashSet());
 		registerFastCloner(HashMap.class, new FastClonerHashMap());
@@ -77,7 +78,7 @@ public class Cloner {
 	}
 
 
-	public void registerFastCloner(final Class<?> c, final IFastCloner fastCloner) {
+	public void registerFastCloner(final Class<?> c, final ShallowCloner fastCloner) {
 		if (fastCloners.containsKey(c)) throw new IllegalArgumentException(c + " already fast-cloned!");
 		fastCloners.put(c, fastCloner);
 	}
@@ -107,7 +108,7 @@ public class Cloner {
 		}
 
 		Class<?> aClass = o.getClass();
-		IDeepCloner cloner = cloners.get(aClass);
+		DeepCloner cloner = cloners.get(aClass);
 		if (cloner == null) {
 			cloner = findDeepCloner(aClass);
 			cloners.put(aClass, cloner);
@@ -120,13 +121,13 @@ public class Cloner {
 		return cloner.deepClone(o, clones);
 	}
 
-	public IDeepCloner findDeepCloner(Class<?> clz) {
+	public DeepCloner findDeepCloner(Class<?> clz) {
 		if (ignored.contains(clz)) {
 			return IGNORE_CLONER;
 		} else if (clz.isArray()) {
 			return new CloneArrayCloner(clz);
 		} else {
-			final IFastCloner fastCloner = fastCloners.get(clz);
+			final ShallowCloner fastCloner = fastCloners.get(clz);
 			if (fastCloner != null) {
 				return new FastClonerCloner(fastCloner);
 			} else {

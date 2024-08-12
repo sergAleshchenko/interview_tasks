@@ -1,12 +1,15 @@
-package lightspeed.cloning;
+package lightspeed.cloning.shallow_cloners;
+
+import lightspeed.cloning.DeepCloner;
+import lightspeed.cloning.ShallowCloner;
 
 import java.util.Map;
 import java.util.TreeSet;
 
-public class FastClonerTreeSet implements IFastCloner {
+public class FastClonerTreeSet implements ShallowCloner {
 	@Override
 	@SuppressWarnings("unchecked")
-	public Object clone(Object t, IDeepCloner cloner, Map<Object, Object> clones) {
+	public Object clone(Object t, DeepCloner cloner, Map<Object, Object> clones) {
 		TreeSet<?> treeSet = (TreeSet<?>) t;
 		TreeSet result = new TreeSet(treeSet.comparator());
 		for (Object o : treeSet) {
