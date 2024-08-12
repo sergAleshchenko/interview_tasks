@@ -63,5 +63,13 @@ public class Anagrams {
         System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
         System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
         System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
+
+                System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
+        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
+        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
+
+                System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
+        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
+        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
     }
 }
