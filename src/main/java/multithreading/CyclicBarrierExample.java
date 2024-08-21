@@ -1,6 +1,4 @@
-package multithreading_interview;
-
-import org.springframework.boot.SpringApplication;
+package multithreading;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;

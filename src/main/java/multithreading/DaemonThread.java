@@ -1,4 +1,4 @@
-package multithreading_interview;
+package multithreading;
 
 /**
  * @author Sergei Aleshchenko
@@ -18,17 +18,16 @@ public class DaemonThread extends Thread {
         }
     }
 
-
     public static void main(String[] args) {
-        DaemonThread t1 = new DaemonThread("t1");
-        DaemonThread t2 = new DaemonThread("t2");
-        DaemonThread t3 = new DaemonThread("t3");
+        DaemonThread thread1 = new DaemonThread("t1");
+        DaemonThread thread2 = new DaemonThread("t2");
+        DaemonThread thread3 = new DaemonThread("t3");
 
 
-        t1.start();
-        t1.setDaemon(true);
-        t2.start();
-        t3.setDaemon(true);
-        t3.start();
+        thread1.setDaemon(true);
+        thread1.start();
+        thread2.start();
+        thread3.setDaemon(true);
+        thread3.start();
     }
 }

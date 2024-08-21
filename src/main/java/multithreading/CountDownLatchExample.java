@@ -1,4 +1,4 @@
-package multithreading_interview;
+package multithreading;
 
 import java.util.concurrent.CountDownLatch;
 

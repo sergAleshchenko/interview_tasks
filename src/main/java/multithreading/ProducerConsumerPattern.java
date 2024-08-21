@@ -1,4 +1,4 @@
-package course;
+package multithreading;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -67,8 +67,6 @@ class Consumer extends Thread {
                     while (sharedQueue.size() == 0) {
                         System.out.println("Queue is empty, waiting");
                         sharedQueue.wait();
-
-
                     }
 
                     Thread.sleep(1000);

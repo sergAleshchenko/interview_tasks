@@ -14,19 +14,8 @@ public class DeadlockDemo {
     public static void main(String[] args) throws InterruptedException {
         Runner2 runner2 = new Runner2();
 
-        Thread thread1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                runner2.firstThread();
-            }
-        });
-
-        Thread thread2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                runner2.secondThread();
-            }
-        });
+        Thread thread1 = new Thread(runner2::firstThread);
+        Thread thread2 = new Thread(runner2::secondThread);
 
         thread1.start();
         thread2.start();
@@ -42,8 +31,8 @@ class Runner2 {
     private Account account1 = new Account();
     private Account account2 = new Account();
 
-//    private Lock lock1 = new ReentrantLock();
-//    private Lock lock2 = new ReentrantLock();
+    private Lock lock1 = new ReentrantLock();
+    private Lock lock2 = new ReentrantLock();
 
     private void takeLocks(Lock lock1, Lock lock2) {
         boolean firstLockTaken = false;
@@ -79,10 +68,10 @@ class Runner2 {
         Random random = new Random();
 
         for (int i = 0; i < 10000; i++) {
-//            lock1.lock();
-//            lock2.lock();
+            lock1.lock();
+            lock2.lock();
 
-//            takeLocks(lock1, lock2);
+            takeLocks(lock1, lock2);
 
             synchronized (account1) {
                 synchronized (account2) {
@@ -102,10 +91,10 @@ class Runner2 {
         Random random = new Random();
 
         for (int i = 0; i < 10000; i++) {
-//            lock2.lock();
-//            lock1.lock();
+            lock2.lock();
+            lock1.lock();
 
-//            takeLocks(lock2, lock1);
+            takeLocks(lock2, lock1);
             synchronized (account2) {
                 synchronized (account1) {
                     Account.transfer(account2, account2, random.nextInt(100));
