@@ -17,6 +17,10 @@ public class Solution {
 
         Book book1 = new Book("Learn Hibernate",
                 "Learn Hibernate with building projects", ZonedDateTime.now());
+
+        Book book2 = new Book("Learn Hibernate",
+                "Learn Hibernate with building projects", ZonedDateTime.now());
+
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
@@ -24,6 +28,7 @@ public class Solution {
             // save the book objects
             session.persist(book);
             session.persist(book1);
+            session.persist(book2);
             // commit transaction
             transaction.commit();
         } catch (Exception e) {
@@ -41,8 +46,8 @@ public class Solution {
 
 
             System.out.println("----------------------------------------");
-            Book book2 = session.get(Book.class, 1);
-            System.out.println(book2.getName() + " - " + book2.getDescription());
+            Book book3 = session.get(Book.class, 1);
+            System.out.println(book3.getName() + " - " + book3.getDescription());
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();

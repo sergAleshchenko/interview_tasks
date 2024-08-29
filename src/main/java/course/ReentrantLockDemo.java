@@ -12,19 +12,8 @@ public class ReentrantLockDemo {
     public static void main(String[] args) throws InterruptedException {
         Task task = new Task();
 
-        Thread thread1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                task.firstThread();
-            }
-        });
-
-        Thread thread2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                task.secondThread();
-            }
-        });
+        Thread thread1 = new Thread(task::firstThread);
+        Thread thread2 = new Thread(task::secondThread);
 
         thread1.start();
         thread2.start();

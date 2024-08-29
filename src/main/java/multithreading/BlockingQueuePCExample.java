@@ -10,6 +10,7 @@ public class BlockingQueuePCExample {
 
     public static void main(String[] args) {
         ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<>(5);
+
         Producer producer = new Producer(queue);
         Consumer consumer = new Consumer(queue);
 
@@ -30,8 +31,8 @@ public class BlockingQueuePCExample {
 
         @Override
         public void run() {
-            try {
 
+            try {
                 int i = 0;
                 while (true) {
                     System.out.println("Producing element " + ++i);
@@ -64,5 +65,4 @@ public class BlockingQueuePCExample {
             }
         }
     }
-
 }

@@ -8,7 +8,7 @@ import java.util.concurrent.CyclicBarrier;
  */
 public class CyclicBarrierExample {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         CyclicBarrier cb  = new CyclicBarrier(3, new AfterAction());
 
         Thread t1 = new Thread(new TxtReader("Thread-1", "File-1", cb));

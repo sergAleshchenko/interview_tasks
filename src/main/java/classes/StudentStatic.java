@@ -3,7 +3,7 @@ package classes;
 public class StudentStatic {
     static {
         faculty = "MMF";
-        int a = 1/0;
+        int a = 1/2;
     }
 
     static String faculty;

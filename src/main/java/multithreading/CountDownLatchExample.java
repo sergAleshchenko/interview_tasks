@@ -20,7 +20,6 @@ public class CountDownLatchExample {
         worker3.start();
         worker4.start();
 
-
         cdLatch.await();
         System.out.println("Thread " + Thread.currentThread().getName() + " has finished");
     }

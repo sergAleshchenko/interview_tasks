@@ -13,8 +13,8 @@ public class HibernateMain {
 
     public static void main(String[] args) {
         Employee1 emp = new Employee1();
-        emp.setName("Lisa2");
-        emp.setRole("Manager2");
+        emp.setName("Lisa3");
+        emp.setRole("Manager3");
         emp.setInsertTime(new Date());
 
         SessionFactory sessionFactory = HibernateUtil.getSessionJavaConfigFactory();

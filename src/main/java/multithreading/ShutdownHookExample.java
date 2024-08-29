@@ -8,7 +8,7 @@ class MyThread extends Thread {
     }
 }
 
-public class MyThreadMain {
+public class ShutdownHookExample {
     public static void main(String[] args) {
         Runtime runtime = Runtime.getRuntime();
         runtime.addShutdownHook(new MyThread());
