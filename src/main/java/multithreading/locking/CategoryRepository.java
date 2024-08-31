@@ -9,8 +9,10 @@ import java.util.Optional;
 /**
  * @author Sergei Aleshchenko
  */
-public interface ProductOptimisticRepository extends JpaRepository<ProductOptimistic, Long> {
-    @Lock(LockModeType.OPTIMISTIC_FORCE_INCREMENT)
+public interface CategoryRepository extends JpaRepository<Category, Integer> {
+
     @Override
-    Optional<ProductOptimistic> findById(Long id);
+    @Lock(value = LockModeType.PESSIMISTIC_FORCE_INCREMENT)
+    Optional<Category> findById(Integer integer);
+
 }

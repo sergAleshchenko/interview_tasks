@@ -43,7 +43,7 @@ public class ProductService {
     public void updatePricePessimistic(Long id, double newPrice) {
         ProductPessimistic productPessimistic =
                 productPessimisticRepository
-                        .findByIdLocked(id)
+                        .findById(id)
                         .orElseThrow(EntityNotFoundException::new);
 
         productPessimistic.setPrice(newPrice);

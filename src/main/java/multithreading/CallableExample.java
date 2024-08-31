@@ -6,6 +6,7 @@ import java.util.concurrent.*;
  * @author Sergei Aleshchenko
  */
 public class CallableExample {
+
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         ExecutorService executor = Executors.newFixedThreadPool(2);

@@ -12,5 +12,6 @@ import java.util.Optional;
 public interface ProductPessimisticRepository extends JpaRepository<ProductPessimistic, Long> {
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
-    Optional<ProductPessimistic> findByIdLocked(Long id);
+    @Override
+    Optional<ProductPessimistic> findById(Long id);
 }
