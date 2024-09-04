@@ -1,4 +1,4 @@
-package interview_300_questions;
+package interview_300_questions.covariant_types;
 
 /**
  * @author Sergei Aleshchenko
