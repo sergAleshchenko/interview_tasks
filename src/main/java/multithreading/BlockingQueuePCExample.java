@@ -22,7 +22,7 @@ public class BlockingQueuePCExample {
     }
 
     static class Producer implements Runnable {
-        BlockingQueue<String> queue = null;
+        BlockingQueue<String> queue;
 
         public Producer(BlockingQueue<String> queue) {
             super();
@@ -37,7 +37,7 @@ public class BlockingQueuePCExample {
                 while (true) {
                     System.out.println("Producing element " + ++i);
                     queue.put("Element " + i);
-                    Thread.sleep(1000);
+//                    Thread.sleep(1000);
                 }
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -46,7 +46,7 @@ public class BlockingQueuePCExample {
     }
 
     static class Consumer implements Runnable {
-        BlockingQueue<String> queue = null;
+        BlockingQueue<String> queue;
 
 
         public Consumer(BlockingQueue<String> queue) {

@@ -1,4 +1,4 @@
-package spring_demo;
+package spring_27_questions;
 
 /**
  * @author Sergei Aleshchenko

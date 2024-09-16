@@ -1,10 +1,8 @@
-package spring_demo;
+package spring_27_questions;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-
-import java.util.*;
 
 /**
  * @author Sergei Aleshchenko
@@ -12,19 +10,17 @@ import java.util.*;
 @SpringBootApplication
 public class SchoolApp {
 
-
-
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(SchoolApp.class, args);
-        context.getBean(Student.class).learn();
 
+        context.getBean(Student.class).learn();
         context.getBean(CollectionBean.class).printNames();
 
-        Collection<Integer> syncCollection = Collections.synchronizedCollection(new ArrayList<>());
+//        Collection<Integer> syncCollection = Collections.synchronizedCollection(new ArrayList<>());
 
-        Runnable listOperations = () -> {
-            syncCollection.addAll(Arrays.asList(1, 2, 3, 4, 5, 6));
-        };
+//        Runnable listOperations = () -> {
+//            syncCollection.addAll(Arrays.asList(1, 2, 3, 4, 5, 6));
+//        };
 
     }
 }

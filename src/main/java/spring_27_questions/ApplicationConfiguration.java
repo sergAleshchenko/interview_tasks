@@ -1,4 +1,4 @@
-package spring_demo;
+package spring_27_questions;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,7 +11,7 @@ import java.util.List;
  * @author Sergei Aleshchenko
  */
 @Configuration
-@ComponentScan("spring_demo")
+@ComponentScan("spring_27_questions")
 public class ApplicationConfiguration {
 
     @Bean

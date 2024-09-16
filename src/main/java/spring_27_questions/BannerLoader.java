@@ -1,7 +1,6 @@
-package spring_demo;
+package spring_27_questions;
 
 import org.springframework.context.ResourceLoaderAware;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;

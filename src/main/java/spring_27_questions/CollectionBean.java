@@ -1,4 +1,4 @@
-package spring_demo;
+package spring_27_questions;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,10 +16,10 @@ import java.util.List;
 public class CollectionBean {
 
     @Autowired
-    private List<String> names;
+    private List<String> notNames;
 
     public void printNames() {
-        System.out.println(names);
+        System.out.println(notNames);
     }
 
 }
