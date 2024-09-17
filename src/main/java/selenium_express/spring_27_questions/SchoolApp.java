@@ -1,4 +1,4 @@
-package spring_27_questions;
+package selenium_express.spring_27_questions;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,12 +15,8 @@ public class SchoolApp {
 
         context.getBean(Student.class).learn();
         context.getBean(CollectionBean.class).printNames();
+        context.getBean(CollectionBean.class).printBunchOfNames();
 
-//        Collection<Integer> syncCollection = Collections.synchronizedCollection(new ArrayList<>());
-
-//        Runnable listOperations = () -> {
-//            syncCollection.addAll(Arrays.asList(1, 2, 3, 4, 5, 6));
-//        };
-
+        context.getBean(SpelBean.class).printFields();
     }
 }

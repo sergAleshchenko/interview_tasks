@@ -1,4 +1,4 @@
-package spring_27_questions;
+package selenium_express.spring_27_questions;
 
 /**
  * @author Sergei Aleshchenko

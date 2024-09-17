@@ -1,4 +1,4 @@
-package spring_27_questions;
+package selenium_express.spring_27_questions;
 
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.Resource;

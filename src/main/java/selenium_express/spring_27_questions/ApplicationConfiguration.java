@@ -1,4 +1,4 @@
-package spring_27_questions;
+package selenium_express.spring_27_questions;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -15,7 +15,13 @@ import java.util.List;
 public class ApplicationConfiguration {
 
     @Bean
-    public List<String> bean1() {
+    public List<String> notNames() {
         return Arrays.asList("Name1", "Name2", "Name3", "Name4");
     }
+
+    @Bean
+    public List<String> anotherBunchOfNames() {
+        return Arrays.asList("Name5", "Name6", "Name7", "Name8");
+    }
+
 }
