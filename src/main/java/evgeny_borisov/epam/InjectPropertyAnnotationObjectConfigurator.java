@@ -19,7 +19,7 @@ public class InjectPropertyAnnotationObjectConfigurator implements ObjectConfigu
     @SneakyThrows
     public InjectPropertyAnnotationObjectConfigurator() {
         String path = ClassLoader.getSystemClassLoader()
-                .getResource("application.properties").getPath();
+                .getResource("application.properties.bkp").getPath();
         Stream<String> lines = new BufferedReader(new FileReader(path)).lines();
         propertiesMap = lines
                 .map(line -> line.split("="))

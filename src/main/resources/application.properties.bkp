@@ -9,5 +9,5 @@ spring.datasource.password=admin1234
 spring.aop.auto=false
 #debug=true
 
-
+server.port=8080
 discount.offer.price=20
