@@ -1,26 +1,35 @@
 package selenium_express.microservices.employee_service.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import selenium_express.microservices.employee_service.response.EmployeeResponse;
+import selenium_express.microservices.employee_service.services.EmployeeService;
+import java.util.List;
 
 /**
  * @author Sergei Aleshchenko
  */
 @RestController
+@RequiredArgsConstructor
 public class EmployeeController {
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private final EmployeeService employeeService;
 
+    @GetMapping("/employees")
+    public ResponseEntity<List<EmployeeResponse>> getEmployees() {
+        List<EmployeeResponse> employeeResponses = employeeService.getAllEmployees();
 
-    @GetMapping("/employee")
-    public String getEmployee() {
-        String address = restTemplate.getForObject("http://localhost:8081/address", String.class);
-
-        return "Name: Abhilash, email: abhialsh@gmail.com, address: " + address;
+        return ResponseEntity.status(HttpStatus.OK).body(employeeResponses);
     }
 
+    @GetMapping("/employees/{id}")
+    public ResponseEntity<EmployeeResponse> getEmployeeDetails(@PathVariable Long id) {
+        EmployeeResponse employeeResponse = employeeService.getEmployeeById(id);
 
+        return ResponseEntity.status(HttpStatus.OK).body(employeeResponse);
+    }
 }
