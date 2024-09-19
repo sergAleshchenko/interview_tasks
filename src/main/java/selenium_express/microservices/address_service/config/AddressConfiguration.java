@@ -1,4 +1,4 @@
-package selenium_express.microservices.employee_service.configuration;
+package selenium_express.microservices.address_service.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
  * @author Sergei Aleshchenko
  */
 @Configuration
-public class EmployeeConfiguration {
+public class AddressConfiguration {
 
     @Bean
     public RestTemplate restTemplate() {
@@ -20,5 +20,4 @@ public class EmployeeConfiguration {
     public ModelMapper modelMapper() {
         return new ModelMapper();
     }
-
 }
