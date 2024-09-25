@@ -3,17 +3,15 @@ package selenium_express.microservices.employee_service.response;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-
 /**
  * @author Sergei Aleshchenko
  */
 @Getter
 @Setter
-public class EmployeeResponse {
+public class AddressResponse {
     private Long id;
-    private String name;
-    private String role;
-    private Date insertTime;
-    private AddressResponse addressResponse;
+    private String state;
+    private String city;
+    private String street;
+    private String zip;
 }
