@@ -1,10 +1,10 @@
-package selenium_express.microservices.employee_service.entities;
+package selenium_express.microservices.employee_service_2.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import jakarta.persistence.*;
 
 import java.util.Date;
-import jakarta.persistence.*;
 
 /**
  * @author Sergei Aleshchenko

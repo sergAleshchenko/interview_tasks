@@ -1,14 +1,15 @@
-package selenium_express.microservices.employee_service.config;
+package selenium_express.microservices.employee_service_2.config;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
+import selenium_express.microservices.employee_service_2.feign.AddressClient;
+import selenium_express.microservices.employee_service_2.response.AddressResponse;
 
 /**
  * @author Sergei Aleshchenko
@@ -25,13 +26,6 @@ public class EmployeeConfiguration {
     public RestTemplate restTemplate() {
         return builder
                 .rootUri(addressBaseUrl)
-                .build();
-    }
-
-    @Bean
-    public WebClient webClient() {
-        return WebClient.builder()
-                .baseUrl(addressBaseUrl)
                 .build();
     }
 
