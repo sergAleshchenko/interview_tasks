@@ -14,4 +14,5 @@ public class AddressResponse {
     private String city;
     private String street;
     private String zip;
+
 }
