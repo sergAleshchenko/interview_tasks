@@ -11,7 +11,6 @@ import java.util.List;
 /**
  * @author Sergei Aleshchenko
  */
-// http://localhost:8082/address-service/api/address/2
 @FeignClient(name = "address-service", path = "/address-service/api/")
 public interface AddressClient {
 

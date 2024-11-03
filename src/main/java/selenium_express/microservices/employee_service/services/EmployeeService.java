@@ -15,6 +15,7 @@ import selenium_express.microservices.employee_service.response.EmployeeResponse
 import selenium_express.microservices.employee_service.response.AddressResponse;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -28,8 +29,6 @@ public class EmployeeService {
     private final ModelMapper modelMapper;
     private final AddressClient addressClient;
     private final DiscoveryClient discoveryClient;
-    private final LoadBalancerClient loadBalancerClient;
-    private final RestTemplate restTemplate;
 
     public List<EmployeeResponse> getAllEmployees() {
         List<Employee> employees = employeeRepository.findAll();
@@ -37,6 +36,14 @@ public class EmployeeService {
         List<EmployeeResponse> employeeResponses = employees.stream()
                 .map(employee -> modelMapper.map(employee, EmployeeResponse.class))
                 .collect(Collectors.toList());
+
+        employeeResponses.forEach(employeeResponse -> {
+            ResponseEntity<AddressResponse> addressResponse = addressClient.getAddressByEmployeeId(employeeResponse.getId());
+
+            if (addressResponse.getStatusCode().is2xxSuccessful() && addressResponse.getBody() != null) {
+                employeeResponse.setAddressResponse(addressResponse.getBody());
+            }
+        });
 
         return employeeResponses;
     }
@@ -65,9 +72,5 @@ public class EmployeeService {
         employeeResponse.setAddressResponse(addressResponse);
 
         return employeeResponse;
-    }
-
-    public AddressResponse callingAddressService(Long id) {
-        return restTemplate.getForObject("http://address-service/{id}", AddressResponse.class, id);
     }
 }
