@@ -6,5 +6,7 @@ public class EnumDemo {
         Voucher voucher = VoucherCreator.createVoucher(data);
 
         System.out.println(voucher);
+
+        System.out.println(PlaneProducer.BOEING.name());
     }
 }

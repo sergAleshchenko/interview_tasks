@@ -2,12 +2,12 @@ package selenium_express.microservices.employee_service.services;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.WebClient;
 import selenium_express.microservices.employee_service.entities.Employee;
 import selenium_express.microservices.employee_service.feign.AddressClient;
 import selenium_express.microservices.employee_service.repository.EmployeeRepository;
@@ -26,8 +26,10 @@ public class EmployeeService {
 
     private final EmployeeRepository employeeRepository;
     private final ModelMapper modelMapper;
-    private final WebClient webClient;
     private final AddressClient addressClient;
+    private final DiscoveryClient discoveryClient;
+    private final LoadBalancerClient loadBalancerClient;
+    private final RestTemplate restTemplate;
 
     public List<EmployeeResponse> getAllEmployees() {
         List<Employee> employees = employeeRepository.findAll();
@@ -39,18 +41,22 @@ public class EmployeeService {
         return employeeResponses;
     }
 
-    // RestClient and WebClient are not recommended for use
-    // Spring recommend to use FeignClient
+
     public EmployeeResponse getEmployeeById(Long id) {
         Employee employee = employeeRepository.findById(id).get();
         EmployeeResponse employeeResponse = modelMapper.map(employee, EmployeeResponse.class);
 
-//        AddressResponse addressResponse = webClient
-//                .get()
-//                .uri("/address/" + id)
-//                .retrieve()
-//                .bodyToMono(AddressResponse.class)
-//                .block();
+        List<ServiceInstance> instances = discoveryClient.getInstances("address-service");
+
+        instances.stream().forEach(serviceInstance -> {
+            String contextRoot = serviceInstance.getMetadata().get("configPath");
+            String contextUser = serviceInstance.getMetadata().get("user");
+
+            System.out.println("contextRoot: " + contextRoot);
+            System.out.println("contextUser: " + contextUser);
+            System.out.println(serviceInstance.getUri().toString());
+
+        });
 
         ResponseEntity<AddressResponse> addressResponseResponseEntity =
                 addressClient.getAddressByEmployeeId(id);
@@ -59,5 +65,9 @@ public class EmployeeService {
         employeeResponse.setAddressResponse(addressResponse);
 
         return employeeResponse;
+    }
+
+    public AddressResponse callingAddressService(Long id) {
+        return restTemplate.getForObject("http://address-service/{id}", AddressResponse.class, id);
     }
 }

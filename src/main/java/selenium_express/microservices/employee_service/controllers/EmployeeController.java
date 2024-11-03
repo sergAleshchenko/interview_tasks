@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import selenium_express.microservices.employee_service.response.AddressResponse;
 import selenium_express.microservices.employee_service.response.EmployeeResponse;
 import selenium_express.microservices.employee_service.services.EmployeeService;
 import java.util.List;
@@ -29,6 +30,7 @@ public class EmployeeController {
     @GetMapping("/employees/{id}")
     public ResponseEntity<EmployeeResponse> getEmployeeDetails(@PathVariable Long id) {
         EmployeeResponse employeeResponse = employeeService.getEmployeeById(id);
+//        AddressResponse addressResponse = employeeService.callingAddressService(id);
 
         return ResponseEntity.status(HttpStatus.OK).body(employeeResponse);
     }
