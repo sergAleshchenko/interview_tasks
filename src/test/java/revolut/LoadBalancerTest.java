@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * @author Sergei Aleshchenko
  */
@@ -26,7 +28,7 @@ public class LoadBalancerTest {
         Server nextServer = loadBalancer.getNextServer();
 
         Assert.assertNotNull(nextServer);
-        Assert.assertEquals(nextServer.getIpAddress(), "100.111.112.020");
+        assertEquals(nextServer.getIpAddress(), "100.111.112.020");
     }
 
     @Test
@@ -55,7 +57,7 @@ public class LoadBalancerTest {
         IllegalStateException exception =
                 Assert.assertThrows(IllegalStateException.class, () -> loadBalancer.addServer("100.111.112.030"));
 
-        Assert.assertEquals(exception.getMessage(), "The servers count is exceeded");
+        assertEquals(exception.getMessage(), "The servers count is exceeded");
     }
 
 }
