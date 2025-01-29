@@ -30,7 +30,7 @@ public class RowColumnPagePrinter {
             int lastIndexOnPage = Math.min(firstIndexOnPage + numbersPerPage - 1, data.length - 1);
             printPageHeader(pageHeader, pageNumber);
             printPage(firstIndexOnPage, lastIndexOnPage, data);
-            printStream.println("\f");
+            printStream.println("");
             pageNumber++;
         }
     }
