@@ -10,7 +10,7 @@ public class CommandLineParser {
     public static void main(String[] args) {
 
         try {
-            Args arg = new Args("p#", args);
+            Args arg = new Args("l,p#,d*", args);
 
             boolean logging = arg.getBoolean('l');
             int port = arg.getInt('p');
@@ -23,6 +23,6 @@ public class CommandLineParser {
     }
 
     private static void executeApplication(boolean logging, int port, String directory) {
-        System.out.println("Solution.executeApplication()");
+        System.out.printf("logging: %s, port: %d, directory %s", logging, port, directory);
     }
 }

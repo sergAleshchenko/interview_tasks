@@ -72,7 +72,7 @@ public class Args {
     }
 
     private void parseArgumentStrings(List<String> argsList) throws ArgsException {
-        for (currentArgument = argsList.listIterator(), currentArgument.hasNext(); ; ) {
+        for (currentArgument = argsList.listIterator(); currentArgument.hasNext();) {
             String argString = currentArgument.next();
             if (argString.startsWith("-")) {
                 parseArgumentCharacters(argString.substring(1));
@@ -119,6 +119,10 @@ public class Args {
 
     public String getString(char arg) {
         return StringArgumentMarshaller.getValue(marshallers.get(arg));
+    }
+
+    public int cardinally() {
+        return argsFound.size();
     }
 
 //    public String getDouble(char arg) {
