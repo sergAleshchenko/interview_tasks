@@ -134,7 +134,7 @@ public class MySerialDateTest extends TestCase {
      * Monday following Friday 9 November 2001 should be 12 November.
      */
     public void testMondayFollowingFriday9Nov2001() {
-        MySerialDate mondayAfter = MySerialDate.getFollowingDayOfWeek(
+        MySerialDate mondayAfter = (MySerialDate) MySerialDate.getFollowingDayOfWeek(
                 MySerialDate.MONDAY, this.nov9Y2001
         );
         assertEquals(12, mondayAfter.getDayOfMonth());
@@ -144,7 +144,7 @@ public class MySerialDateTest extends TestCase {
      * Monday nearest Friday 9 November 2001 should be 12 November.
      */
     public void testMondayNearestFriday9Nov2001() {
-        MySerialDate mondayNearest = MySerialDate.getNearestDayOfWeek(
+        MySerialDate mondayNearest = (MySerialDate) MySerialDate.getNearestDayOfWeek(
                 MySerialDate.MONDAY, this.nov9Y2001
         );
         assertEquals(12, mondayNearest.getDayOfMonth());
@@ -155,7 +155,7 @@ public class MySerialDateTest extends TestCase {
      */
     public void testMondayNearest22Jan1970() {
         MySerialDate jan22Y1970 = (MySerialDate) MySerialDate.createInstance(22, MonthConstants.JANUARY, 1970);
-        MySerialDate mondayNearest = MySerialDate.getNearestDayOfWeek(MySerialDate.MONDAY, jan22Y1970);
+        MySerialDate mondayNearest = (MySerialDate) MySerialDate.getNearestDayOfWeek(MySerialDate.MONDAY, jan22Y1970);
         assertEquals(19, mondayNearest.getDayOfMonth());
     }
 

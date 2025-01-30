@@ -668,8 +668,8 @@ public abstract class MySerialDate extends SerialDate
      * @return the earliest date that falls on the specified day-of-the-week
      *         and is AFTER the base date.
      */
-    public static MySerialDate getFollowingDayOfWeek(final int targetWeekday,
-                                                   final MySerialDate base) {
+    public static SerialDate getFollowingDayOfWeek(final int targetWeekday,
+                                                   final SerialDate base) {
 
         // check arguments...
         if (!MySerialDate.isValidWeekdayCode(targetWeekday)) {
@@ -681,14 +681,14 @@ public abstract class MySerialDate extends SerialDate
         // find the date...
         final int adjust;
         final int baseDOW = base.getDayOfWeek();
-        if (baseDOW > targetWeekday) {
+        if (baseDOW >= targetWeekday) {
             adjust = 7 + Math.min(0, targetWeekday - baseDOW);
         }
         else {
             adjust = Math.max(0, targetWeekday - baseDOW);
         }
 
-        return (MySerialDate) MySerialDate.addDays(adjust, base);
+        return MySerialDate.addDays(adjust, base);
     }
 
     /**
@@ -701,8 +701,8 @@ public abstract class MySerialDate extends SerialDate
      * @return the date that falls on the specified day-of-the-week and is
      *         CLOSEST to the base date.
      */
-    public static MySerialDate getNearestDayOfWeek(final int targetDOW,
-                                                 final MySerialDate base) {
+    public static SerialDate getNearestDayOfWeek(final int targetDOW,
+                                                 final SerialDate base) {
 
         // check arguments...
         if (!MySerialDate.isValidWeekdayCode(targetDOW)) {
@@ -712,15 +712,16 @@ public abstract class MySerialDate extends SerialDate
         }
 
         // find the date...
-        final int baseDOW = base.getDayOfWeek();
-        int adjust = -Math.abs(targetDOW - baseDOW);
-        if (adjust >= 4) {
-            adjust = 7 - adjust;
+        int delta =targetDOW - base.getDayOfWeek();
+        int positiveDelta = delta + 7;
+        int adjust = positiveDelta % 7;
+        if (adjust > 3) {
+            adjust = adjust - 7;
         }
         if (adjust <= -4) {
             adjust = 7 + adjust;
         }
-        return (MySerialDate) MySerialDate.addDays(adjust, base);
+        return  MySerialDate.addDays(adjust, base);
 
     }
 
@@ -756,7 +757,7 @@ public abstract class MySerialDate extends SerialDate
             case MySerialDate.FOURTH_WEEK_IN_MONTH : return "Fourth";
             case MySerialDate.LAST_WEEK_IN_MONTH : return "Last";
             default :
-                return "MySerialDate.weekInMonthToString(): invalid code.";
+                throw new IllegalArgumentException();
         }
 
     }
@@ -776,7 +777,7 @@ public abstract class MySerialDate extends SerialDate
             case MySerialDate.PRECEDING : return "Preceding";
             case MySerialDate.NEAREST : return "Nearest";
             case MySerialDate.FOLLOWING : return "Following";
-            default : return "ERROR : Relative To String";
+            default : throw new IllegalArgumentException();
         }
 
     }
@@ -1021,7 +1022,7 @@ public abstract class MySerialDate extends SerialDate
      * @return the earliest date that falls on the specified day-of-the-week
      *         and is AFTER this date.
      */
-    public MySerialDate getFollowingDayOfWeek(final int targetDOW) {
+    public SerialDate getFollowingDayOfWeek(final int targetDOW) {
         return getFollowingDayOfWeek(targetDOW, this);
     }
 
@@ -1032,8 +1033,8 @@ public abstract class MySerialDate extends SerialDate
      *
      * @return the nearest date that falls on the specified day-of-the-week.
      */
-    public MySerialDate getNearestDayOfWeek(final int targetDOW) {
-        return getNearestDayOfWeek(targetDOW, this);
+    public SerialDate getNearestDayOfWeek(final int targetDOW) {
+        return MySerialDate.getNearestDayOfWeek(targetDOW, this);
     }
 
 }

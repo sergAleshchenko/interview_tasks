@@ -317,7 +317,7 @@ public class BobsSerialDateTest extends TestCase {
     }
 
     public void testGetFollowingDayOfWeek() throws Exception {
-//        assertEquals(d(1, JANUARY, 2005),MySerialDate.getFollowingDayOfWeek(SATURDAY, d(25, DECEMBER, 2004)));
+        assertEquals(d(1, JANUARY, 2005),MySerialDate.getFollowingDayOfWeek(SATURDAY, d(25, DECEMBER, 2004)));
         assertEquals(d(1, JANUARY, 2005), MySerialDate.getFollowingDayOfWeek(SATURDAY, d(26, DECEMBER, 2004)));
         assertEquals(d(3, MARCH, 2004), MySerialDate.getFollowingDayOfWeek(WEDNESDAY, d(28, FEBRUARY, 2004)));
 
@@ -345,8 +345,8 @@ public class BobsSerialDateTest extends TestCase {
         assertEquals(d(24, APRIL, 2006), MySerialDate.getNearestDayOfWeek(MONDAY, d(21, APRIL, 2006)));
         assertEquals(d(24, APRIL, 2006), MySerialDate.getNearestDayOfWeek(MONDAY, d(22, APRIL, 2006)));
 
-        //    assertEquals(d(18, APRIL, 2006), getNearestDayOfWeek(TUESDAY, d(16, APRIL, 2006)));
-        //    assertEquals(d(18, APRIL, 2006), getNearestDayOfWeek(TUESDAY, d(17, APRIL, 2006)));
+//        assertEquals(d(18, APRIL, 2006), MySerialDate.getNearestDayOfWeek(TUESDAY, d(16, APRIL, 2006)));
+//        assertEquals(d(18, APRIL, 2006), MySerialDate.getNearestDayOfWeek(TUESDAY, d(17, APRIL, 2006)));
         assertEquals(d(18, APRIL, 2006), MySerialDate.getNearestDayOfWeek(TUESDAY, d(18, APRIL, 2006)));
         assertEquals(d(18, APRIL, 2006), MySerialDate.getNearestDayOfWeek(TUESDAY, d(19, APRIL, 2006)));
         assertEquals(d(18, APRIL, 2006), MySerialDate.getNearestDayOfWeek(TUESDAY, d(20, APRIL, 2006)));
@@ -416,11 +416,11 @@ public class BobsSerialDateTest extends TestCase {
         assertEquals("Fourth", weekInMonthToString(FOURTH_WEEK_IN_MONTH));
         assertEquals("Last", weekInMonthToString(LAST_WEEK_IN_MONTH));
 
-        //todo    try {
-        //      weekInMonthToString(-1);
-        //      fail("Invalid week code should throw exception");
-        //    } catch (IllegalArgumentException e) {
-        //    }
+        try {
+            weekInMonthToString(-1);
+            fail("Invalid week code should throw exception");
+        } catch (IllegalArgumentException e) {
+        }
     }
 
     public void testRelativeToString() throws Exception {
@@ -428,11 +428,11 @@ public class BobsSerialDateTest extends TestCase {
         assertEquals("Nearest", relativeToString(NEAREST));
         assertEquals("Following", relativeToString(FOLLOWING));
 
-        //todo    try {
-        //      relativeToString(-1000);
-        //      fail("Invalid relative code should throw exception");
-        //    } catch (IllegalArgumentException e) {
-        //    }
+        try {
+            relativeToString(-1000);
+            fail("Invalid relative code should throw exception");
+        } catch (IllegalArgumentException e) {
+        }
     }
 
     public void testCreateInstanceFromDDMMYYY() throws Exception {
