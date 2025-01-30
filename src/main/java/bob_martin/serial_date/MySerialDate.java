@@ -616,8 +616,8 @@ public abstract class MySerialDate
      *
      * @return a new date.
      */
-    public static MySerialDate addMonths(final int months,
-                                       final MySerialDate base) {
+    public static SerialDate addMonths(final int months,
+                                       final SerialDate base) {
 
         final int yy = (12 * base.getYYYY() + base.getMonth() + months - 1)
                 / 12;
@@ -626,7 +626,7 @@ public abstract class MySerialDate
         final int dd = Math.min(
                 base.getDayOfMonth(), MySerialDate.lastDayOfMonth(mm, yy)
         );
-        return (MySerialDate) MySerialDate.createInstance(dd, mm, yy);
+        return MySerialDate.createInstance(dd, mm, yy);
 
     }
 
@@ -639,7 +639,7 @@ public abstract class MySerialDate
      *
      * @return A new date.
      */
-    public static MySerialDate addYears(final int years, final MySerialDate base) {
+    public static SerialDate addYears(final int years, final SerialDate base) {
 
         final int baseY = base.getYYYY();
         final int baseM = base.getMonth();
@@ -650,7 +650,7 @@ public abstract class MySerialDate
                 baseD, MySerialDate.lastDayOfMonth(baseM, targetY)
         );
 
-        return (MySerialDate) MySerialDate.createInstance(targetD, baseM, targetY);
+        return MySerialDate.createInstance(targetD, baseM, targetY);
 
     }
 
@@ -664,8 +664,8 @@ public abstract class MySerialDate
      * @return the latest date that falls on the specified day-of-the-week and
      *         is BEFORE the base date.
      */
-    public static MySerialDate getPreviousDayOfWeek(final int targetWeekday,
-                                                  final MySerialDate base) {
+    public static SerialDate getPreviousDayOfWeek(final int targetWeekday,
+                                                  final SerialDate base) {
 
         // check arguments...
         if (!MySerialDate.isValidWeekdayCode(targetWeekday)) {
@@ -684,7 +684,7 @@ public abstract class MySerialDate
             adjust = -7 + Math.max(0, targetWeekday - baseDOW);
         }
 
-        return (MySerialDate) MySerialDate.addDays(adjust, base);
+        return MySerialDate.addDays(adjust, base);
 
     }
 
@@ -762,11 +762,11 @@ public abstract class MySerialDate
      *
      * @return a new serial date.
      */
-    public MySerialDate getEndOfCurrentMonth(final MySerialDate base) {
+    public SerialDate getEndOfCurrentMonth(final MySerialDate base) {
         final int last = MySerialDate.lastDayOfMonth(
                 base.getMonth(), base.getYYYY()
         );
-        return (MySerialDate) MySerialDate.createInstance(last, base.getMonth(), base.getYYYY());
+        return MySerialDate.createInstance(last, base.getMonth(), base.getYYYY());
     }
 
     /**
@@ -1037,8 +1037,9 @@ public abstract class MySerialDate
      * @return the latest date that falls on the specified day-of-the-week and
      *         is BEFORE this date.
      */
-    public MySerialDate getPreviousDayOfWeek(final int targetDOW) {
-        return getPreviousDayOfWeek(targetDOW, this);
+    public SerialDate getPreviousDayOfWeek(final int targetDOW) {
+//        return getPreviousDayOfWeek(targetDOW, this);
+        return null;
     }
 
     /**
@@ -1051,7 +1052,8 @@ public abstract class MySerialDate
      *         and is AFTER this date.
      */
     public SerialDate getFollowingDayOfWeek(final int targetDOW) {
-        return getFollowingDayOfWeek(targetDOW, this);
+//        return getFollowingDayOfWeek(targetDOW, this);
+        return null;
     }
 
     /**
@@ -1062,7 +1064,8 @@ public abstract class MySerialDate
      * @return the nearest date that falls on the specified day-of-the-week.
      */
     public SerialDate getNearestDayOfWeek(final int targetDOW) {
-        return MySerialDate.getNearestDayOfWeek(targetDOW, this);
+//        return MySerialDate.getNearestDayOfWeek(targetDOW, this);
+        return null;
     }
 
 }
