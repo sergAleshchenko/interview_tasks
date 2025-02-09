@@ -11,4 +11,9 @@ public class A {
     public void test() {
         System.out.println("Hello from class A");
     }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }
