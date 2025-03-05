@@ -20,6 +20,8 @@ public class CyclicBarrierExample {
         t3.start();
 
         System.out.println("Done");
+
+        ;
     }
 }
 

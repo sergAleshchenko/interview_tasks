@@ -37,7 +37,7 @@ public class BlockingQueuePCExample {
                 while (true) {
                     System.out.println("Producing element " + ++i);
                     queue.put("Element " + i);
-//                    Thread.sleep(1000);
+                    Thread.sleep(1000);
                 }
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);

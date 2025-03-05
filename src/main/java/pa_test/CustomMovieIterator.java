@@ -39,9 +39,7 @@ public class CustomMovieIterator implements Iterator<Movie> {
         return list.get(currentIndex++);
     }
 
-
     private boolean isMovieEligible(Movie currentMovie) {
         return currentMovie.getRating() >= 8;
     }
-
 }
