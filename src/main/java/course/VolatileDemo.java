@@ -1,6 +1,7 @@
 package course;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -14,6 +15,7 @@ public class VolatileDemo {
 
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
+
 
         myThreadVol.shutdown();
     }

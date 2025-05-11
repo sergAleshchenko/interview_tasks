@@ -15,6 +15,8 @@ public class ShaDemo {
         String unencrypted = "v";
         byte[] bytes = null;
 
+
+
 //        Base64.Encoder encoder = Base64.getEncoder();
 //        bytes = encoder.encode(unencrypted.getBytes());
 
@@ -27,6 +29,7 @@ public class ShaDemo {
         }
         System.out.println(bytes.toString());
         BigInteger bigInteger = new BigInteger(1, bytes);
+
         String encrypted = bigInteger.toString(16);
         System.out.println(encrypted);
 

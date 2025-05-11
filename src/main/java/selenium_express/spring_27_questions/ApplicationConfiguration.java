@@ -11,7 +11,7 @@ import java.util.List;
  * @author Sergei Aleshchenko
  */
 @Configuration
-@ComponentScan("spring_27_questions")
+@ComponentScan("selenium_express.spring_27_questions")
 public class ApplicationConfiguration {
 
     @Bean
@@ -24,4 +24,8 @@ public class ApplicationConfiguration {
         return Arrays.asList("Name5", "Name6", "Name7", "Name8");
     }
 
+    @Bean
+    public Bean1 bean1() {
+        return new Bean1();
+    }
 }

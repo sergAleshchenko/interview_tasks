@@ -1,7 +1,9 @@
 package in_out;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
+
 
 public class Quest3 {
     public static void main(String[] args) throws IOException {
@@ -12,6 +14,7 @@ public class Quest3 {
 
         int x2 = 0;
         x2 = System.in.read();
+
 
         System.out.println(x1 + " " + (char) x2);
     }

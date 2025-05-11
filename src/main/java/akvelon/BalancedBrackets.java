@@ -1,77 +1,61 @@
 package akvelon;
 
+import java.util.Scanner;
 import java.util.Stack;
 
 /**
  * @author Sergei Aleshchenko
  */
 public class BalancedBrackets {
-    private Stack<Character> stack = new Stack<>();
 
-    // array mem => O(n)
-    // stack mem => O(1)
-    // cpu => O(n)
-    public boolean isBalanced(String s) {
-        boolean result = false;
+    public static void main(String []argh)
+    {
+        Scanner sc = new Scanner(System.in);
 
-        // null and empty string case
-        if (s == null) {
-            return false;
-        } else if (s.length() == 0) {
-            return true;
+        while (sc.hasNext()) {
+            String input=sc.next();
+            //Complete the code
+            System.out.println(isBalanced(input));
         }
 
-        char[] chars = s.toCharArray();
-
-        for (int i = 0; i < chars.length; i++) {
-
-            switch (chars[i]) {
-                case ')': {
-                    char poppedBracket = ' ';
-                    if (!stack.isEmpty()) {
-                        poppedBracket = stack.pop();
-                        if (poppedBracket == '(') {
-                            return true;
-                        }
-                    } else {
-                        result = false;
-                    }
-                    break;
-                }
-                case ']': {
-                    char poppedBracket = ' ';
-                    if (!stack.isEmpty()) {
-                        poppedBracket = stack.pop();
-                        if (poppedBracket == '[') {
-                            return true;
-                        }
-                    } else {
-                        result = false;
-                    }
-                    break;
-                }
-                case '}': {
-                    char poppedBracket = ' ';
-                    if (!stack.isEmpty()) {
-                        poppedBracket = stack.pop();
-                        if (poppedBracket == '{') {
-                            return true;
-                        }
-                    } else {
-                        result = false;
-                    }
-                    break;
-                }
-            }
-
-            // (1+6) case
-            if (chars[i] == ')' || chars[i] == ']' || chars[i] == '}' ||
-                    chars[i] == '(' ||chars[i] == '[' ||chars[i] == '{') {
-                stack.push(chars[i]);
-            }
-        }
-
-        return result;
     }
 
+
+    public static boolean isBalanced(String input) {
+        if(input == null) {
+            return false;
+        }
+
+        if(input.length() == 0) {
+            return true;
+        }
+        Stack<Character> stack = new Stack<>();
+
+
+        for(Character c: input.toCharArray()) {
+            switch(c) {
+                case '(' :
+                case '{' :
+                case '[' :
+                    stack.add(c);
+                    break;
+                case ')' :
+                    if (stack.isEmpty() || !stack.pop().equals('('))
+                        return false;
+                    break;
+                case '}' :
+                    if (stack.isEmpty() || !stack.pop().equals('{'))
+                        return false;
+                    break;
+                case ']' :
+                    if (stack.isEmpty() || !stack.pop().equals('['))
+                        return false;
+                    break;
+                default:
+                    return false;
+            }
+        }
+
+        return stack.isEmpty();
+    }
 }

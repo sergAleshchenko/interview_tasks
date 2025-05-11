@@ -19,9 +19,12 @@ public class SpelBean {
     @Value("#{T(selenium_express.spring_27_questions.SpelClass).staticMethod()}")
     private String loadValueFromStaticMethod;
 
+    @Value("#{@bean1.calculateSalary()}")
+    private Integer calculateSalary;
+
     public void printFields() {
         System.out.println(loadValueFromAStaticMember);
         System.out.println(loadValueFromStaticMethod);
+        System.out.println(calculateSalary);
     }
-
 }

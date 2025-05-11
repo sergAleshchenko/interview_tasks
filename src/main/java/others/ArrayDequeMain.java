@@ -1,11 +1,13 @@
 package others;
 
 import java.util.ArrayDeque;
+import java.util.BitSet;
 import java.util.Deque;
 
 public class ArrayDequeMain {
     public static void main(String[] args) {
         Deque<Integer> stack = new ArrayDeque<>();
+
 
         stack.push(1);
         stack.push(2);
@@ -16,6 +18,9 @@ public class ArrayDequeMain {
         }
 
         System.out.println();
+
+        BitSet bitSet = new BitSet(5);
+
 
         Deque<Integer> queue = new ArrayDeque<>();
         queue.offer(11);

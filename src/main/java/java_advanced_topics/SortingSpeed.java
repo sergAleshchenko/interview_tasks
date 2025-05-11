@@ -21,6 +21,8 @@ public class SortingSpeed {
 //        Collections.sort(arrayList, new TitleComparator());
         Collections.sort(linkedList, new ReverseTitleComparator());
 
+
+
         long end = System.currentTimeMillis();
 
 //        System.out.println("ArrayList: " + (end - start));

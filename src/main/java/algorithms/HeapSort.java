@@ -7,7 +7,6 @@ import java.util.Arrays;
  */
 public class HeapSort {
 
-
     // { 1, 3, 7, 1, 3, 5, 7, 4 }
     public static void heapSort(int arr[]) {
         int N = arr.length;

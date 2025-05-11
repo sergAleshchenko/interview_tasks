@@ -24,5 +24,6 @@ public class PriorityMain {
         s2 = s2.intern();
         System.out.println(s1 == s2);
 
+
     }
 }
