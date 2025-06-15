@@ -1,4 +1,4 @@
-package inheritance;
+package inheritance.example_1;
 
 class A {
 

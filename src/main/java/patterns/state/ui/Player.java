@@ -14,6 +14,7 @@ public class Player {
     private boolean playing = false;
     private List<String> playlist = new ArrayList<>();
     private int currentTrack = 0;
+    private int rank;
 
     public Player() {
         this.state = new ReadyState(this);
@@ -61,5 +62,9 @@ public class Player {
 
     public void setCurrentTrackAfterStop() {
         this.currentTrack = 0;
+    }
+
+    public int getRanking() {
+        return rank;
     }
 }
