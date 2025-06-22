@@ -10,11 +10,15 @@ public class MyClient {
         try {
             Socket socket = new Socket("localhost", 6666);
             DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-            dataOutputStream.writeUTF("Hello Server!");
-            dataOutputStream.flush();
-            dataOutputStream.close();
-            socket.close();
-        } catch (IOException e) {
+
+            while (true) {
+                dataOutputStream.writeUTF("Hello Server!");
+                Thread.sleep(1000);
+            }
+
+//            dataOutputStream.close();
+//            socket.close();
+        } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }

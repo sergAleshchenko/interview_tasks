@@ -12,7 +12,7 @@ public class Solution {
         System.out.println("name = " + emp.getName());
         System.out.println("salary = " + emp.getSalary());
 
-        FileOutputStream fos = new FileOutputStream("abc.ser");
+        FileOutputStream fos = new FileOutputStream("abc.txt");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
 
         oos.writeObject(emp);
@@ -22,7 +22,7 @@ public class Solution {
 
         System.out.println("Object has been serialized");
 
-        FileInputStream f = new FileInputStream("abc.ser");
+        FileInputStream f = new FileInputStream("abc.txt");
         ObjectInputStream o = new ObjectInputStream(f);
 
         Employee emp1 = (Employee) o.readObject();

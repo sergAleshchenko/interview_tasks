@@ -16,7 +16,6 @@ import java.io.ObjectOutputStream;
 public class Employee extends Person {
     private float salary;
 
-
     public Employee(String name, float salary) {
         super(name);
         this.salary = salary;
@@ -26,7 +25,7 @@ public class Employee extends Person {
 //    private void writeObject(ObjectOutputStream out) throws IOException {
 //        throw new NotSerializableException();
 //    }
-
+//
 //    private void readObject(ObjectInputStream in) throws IOException {
 //        throw new NotSerializableException();
 //    }

@@ -6,10 +6,8 @@ import java.io.IOException;
 
 public class ReaderWriterMain {
     public static void main(String[] args) {
-        try (
-                FileReader fileReader = new FileReader("data/info.txt");
-                FileWriter fileWriter = new FileWriter("data/out2.txt")
-        ) {
+        try (FileReader fileReader = new FileReader("data/info.txt");
+             FileWriter fileWriter = new FileWriter("data/out2.txt")) {
 //            fileWriter.write("Java");
             int symbol = fileReader.read();
             System.out.println((char) symbol);

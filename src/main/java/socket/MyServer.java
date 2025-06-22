@@ -11,9 +11,12 @@ public class MyServer {
             ServerSocket serverSocket = new ServerSocket(6666);
             Socket accept = serverSocket.accept();
             DataInputStream dataInputStream = new DataInputStream(accept.getInputStream());
-            String result = dataInputStream.readUTF();
-            System.out.println("Message = " + result);
-            serverSocket.close();
+
+            while (true) {
+                String result = dataInputStream.readUTF();
+                System.out.println("Message = " + result);
+            }
+//            serverSocket.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

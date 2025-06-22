@@ -17,6 +17,8 @@ public interface SomeInterface1 {
     default void doSomething3() {
         System.out.println("SomeInterface1.doSomething3()");
 
+        System.runFinalization();
+
         Comparator<Player> byRanking =
                 (player1, player2) -> Integer.compare(player1.getRanking(), player2.getRanking());
     }
