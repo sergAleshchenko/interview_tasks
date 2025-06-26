@@ -15,12 +15,10 @@ public class ExecutorServiceDemo {
 
         System.out.println(schedule.get());
 
-        executorService.schedule(() -> {
+        ScheduledFuture<?> scheduleHelloWorld = executorService.schedule(() -> {
             System.out.println("Schedule hello world");
-        },1, TimeUnit.SECONDS);
+        }, 1, TimeUnit.SECONDS);
 
         executorService.shutdown();
-
-
     }
 }

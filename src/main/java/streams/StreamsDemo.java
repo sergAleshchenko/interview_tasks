@@ -30,9 +30,14 @@ public class StreamsDemo {
 
         String[] array = {"Java", "Ruuussshhh"};
         Stream<String> streamOfArray = Arrays.stream(array);
-        streamOfArray.map(s -> s.split(""))
-                .flatMap(Arrays::stream).distinct()
-                .collect(Collectors.toList()).forEach(System.out::println);
+
+        streamOfArray
+                .map(s -> s.split(""))
+                .flatMap(Arrays::stream)
+                .distinct()
+                .toList()
+                .forEach(System.out::println);
+
 
     }
 }
