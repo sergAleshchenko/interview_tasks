@@ -43,6 +43,8 @@ public class MathService {
 
         supportedOps.add(new CalculateFibonacci(fibonacciSequenceCalculator));
         supportedOps.add(new CheckPrime(primeNumberChecker));
+
+
         supportedOps.add(new CleanCaches(allServices));
         supportedOps.add(new GetCaches(allServices));
 

@@ -13,6 +13,7 @@ public class SemaphoreDemo {
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(200);
 
+
         Connection connection = Connection.getConnection();
         for (int i = 0; i < 200; i++) {
             executorService.submit(new Runnable() {

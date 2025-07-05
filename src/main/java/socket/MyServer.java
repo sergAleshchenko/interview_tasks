@@ -8,6 +8,7 @@ import java.net.Socket;
 public class MyServer {
     public static void main(String[] args) {
         try {
+            System.out.println("Hello, MyServer!");
             ServerSocket serverSocket = new ServerSocket(6666);
             Socket accept = serverSocket.accept();
             DataInputStream dataInputStream = new DataInputStream(accept.getInputStream());
