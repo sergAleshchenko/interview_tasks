@@ -26,7 +26,7 @@ public class BalancedBrackets {
             return false;
         }
 
-        if(input.length() == 0) {
+        if(input.isEmpty()) {
             return true;
         }
         Stack<Character> stack = new Stack<>();
